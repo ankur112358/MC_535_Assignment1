@@ -8,36 +8,55 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner spinner;
-    private static final String[] paths = {"gift", "car", "pay", "pet", "sell", "explain", "that", "book", "now", "work", "total"
+    private static final String[] paths = {"", "gift", "car", "pay", "pet", "sell", "explain", "that", "book", "now", "work", "total"
             , "trip", "future", "good", "thank you", "learn", "agent", "should", "like", "movie"};
+    private boolean isSpinnerInitial = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         spinner = (Spinner)findViewById(R.id.spinner1);
-        spinner.setOnItemSelectedListener(this);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_spinner_item,paths);
+        spinner.setSelection(0,false);
+        spinner.setOnItemSelectedListener(this);
+
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
     }
 
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-
+        if(isSpinnerInitial)
+        {
+            isSpinnerInitial = false;
+        }
+        else {
+            final TextView helloTextView = (TextView) findViewById(R.id.editText);
+            String lastName = helloTextView.getText().toString();
+            Global.lastName = lastName;
+            Toast.makeText(this, "Last Name : " + lastName, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            //Create the bundle
+            Bundle bundle = new Bundle();
+            bundle.putString("gesture", paths[position]);
+            //intent.putExtra("First Gesture:", paths[position]);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+        //Toast.makeText(this, "YOUR SELECTION IS : " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+        /*
         switch (position) {
             case 0:
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                intent.putExtra("First Gesture:", paths[0]);
-                startActivity(intent);
-                Toast.makeText(this, "YOUR SELECTION IS : " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+
                 break;
-            /*case 1:
+            case 1:
                 Intent intent2 = new Intent(MainActivity.this, MainActivity2.class);
                 startActivity(intent2);
                 //Toast.makeText(this, "YOUR SELECTION IS : " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
@@ -94,12 +113,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 20:
                 Intent intent20 = new Intent(MainActivity.this, MainActivity2.class);
                 startActivity(intent20);
-                break;*/
+                break;
 
         }
+
+         */
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
         // TODO Auto-generated method stub
     }
+
 }

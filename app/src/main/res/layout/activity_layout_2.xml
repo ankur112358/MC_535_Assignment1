@@ -8,10 +8,43 @@
 
 
     <Button
-        android:id="@+id/practise_button"
+        android:id="@+id/practice_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PRACTISE"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="482dp" />
+        android:text="PRACTICE"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="154dp" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="265dp"
+        android:layout_height="193dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/practice_button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.829">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="311dp"
+            android:layout_height="188dp" />
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/play_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="53dp"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
