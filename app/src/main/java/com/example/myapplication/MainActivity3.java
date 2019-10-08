@@ -59,8 +59,8 @@ public class MainActivity3 extends AppCompatActivity {
         Global.count %= 3;
         File mediaFile = new
                 File(Environment.getExternalStorageDirectory().getAbsolutePath()
-                + "/GESTURE_PRACTICE_" + pn + "_" + Global.lastName + ".mp4");
-
+                + "/" + Global.gesture + "PRACTICE" + pn + "_" + Global.lastName + ".mp4");
+        //+ "/GESTURE_PRACTICE_" + pn + "_" + Global.lastName + ".mp4");
 
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 5);

@@ -133,7 +133,7 @@ public class MainActivity2 extends AppCompatActivity {
             {
                 InputStream input = null;
                 try{
-
+                    Global.gesture = params[0];
                     URL url = new URL("https://www.signingsavvy.com/media/mp4-ld/" + gesture_mapping.get(params[0])); // link of the song which you want to download like (http://...)
                     HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
                     urlConnection.setRequestMethod("POST");
@@ -174,8 +174,6 @@ public class MainActivity2 extends AppCompatActivity {
                     }
                     catch (Exception exception)
                     {
-
-
                         //Toast.makeText(getApplicationContext(),"output exception in catch....."+ exception + "", Toast.LENGTH_LONG).show();
                         Log.d("Error", String.valueOf(exception));
                         publishProgress(String.valueOf(exception));
