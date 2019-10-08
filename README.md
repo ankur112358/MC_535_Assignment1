@@ -1,7 +1,14 @@
 # MC_535_Assignment1
-This is the dummy file.
+Introduction
+After the selection of gesture and last name from the first screen, we download the gesture as background task and store it in the local storage. This video is played using VideoView(play button onclick). The practice button opens up the camera and allows the user to capture a video. The captured video is stored in the local storage. This leads to the 3rd screen which allows the saved video to be uploaded to the server.
 
-Below are the Handy URL's : - Gift - https://www.signingsavvy.com/media/mp4-ld/23/23781.mp4
+Requirements
+The app requires storage permissions.
+
+
+
+Below are the Handy URL's : - 
+Gift - https://www.signingsavvy.com/media/mp4-ld/23/23781.mp4
 Car - https://www.signingsavvy.com/media/mp4-ld/26/26165.mp4
 Pay - https://www.signingsavvy.com/media/mp4-ld/14/14618.mp4
 Pet - https://www.signingsavvy.com/media/mp4-ld/25/25066.mp4
